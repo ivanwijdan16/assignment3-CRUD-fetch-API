@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/c021263beb.js" crossorigin="anonymous"></script>
+    <title>Hero ML</title>
+  </head>
+
+  <body class="px-3" onload="fetchData()">
+    <div class="container-lg my-color p-4 mt-5 rounded-3">
+      <h1 class="text-center fw-bold mb-4">Hero Mobile Legends</h1>
+
+      <form id="add-form" class="mb-3">
+        <div class="mb-3">
+          <label for="name" class="form-label">Nama Hero</label>
+          <input type="text" class="form-control" id="name" />
+        </div>
+        <div class="mb-3">
+          <label for="img" class="form-label">Link Gambar Hero</label>
+          <input type="text" class="form-control" id="img" />
+        </div>
+        <div class="mb-3">
+          <label for="type" class="form-label">Role Hero</label>
+          <select class="form-select" id="role">
+            <option disabled selected hidden>Click this to select role hero...</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="type" class="form-label">Type Hero</label>
+          <select class="form-select" id="type">
+            <option disabled selected hidden>Click this to select type hero...</option>
+          </select>
+        </div>
+        <button onclick="postData(event)" type="submit" class="btn btn-primary mt-4 fw-bold">Submit</button>
+      </form>
+
+      <form id="edit-form" style="display: none" data-id="">
+        <div class="mb-3">
+          <label for="edit-name" class="form-label">Edit Nama Hero</label>
+          <input type="text" class="form-control" id="edit-name" />
+        </div>
+        <div class="mb-3">
+          <label for="edit-img" class="form-label">Edit Link Gambar Hero</label>
+          <input type="text" class="form-control" id="edit-img" />
+        </div>
+        <div class="mb-3">
+          <label for="edit-role" class="form-label">Edit Role Hero</label>
+          <select class="form-select" id="edit-role">
+            <option disabled selected hidden>Click this to select role hero...</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="edit-type" class="form-label">Edit Type Hero</label>
+          <select class="form-select" id="edit-type">
+            <option disabled selected hidden>Click this to select type hero...</option>
+          </select>
+        </div>
+        <button onclick="updateData()" type="button" class="btn btn-primary mt-4 fw-bold">Update</button>
+      </form>
+
+      <div id="result" class="d-flex flex-wrap justify-content-around my-5 show rounded"></div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</html>
