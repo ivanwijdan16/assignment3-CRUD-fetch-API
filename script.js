@@ -117,9 +117,7 @@ function deleteData(id) {
 }
 
 function editData(id) {
-  alert('Anda Sekarang Dalam Mode Edit...');
   const editForm = document.getElementById('edit-form');
-  const addForm = document.querySelector('form');
   const editName = document.getElementById('edit-name');
   const editImg = document.getElementById('edit-img');
   const editRole = document.getElementById('edit-role');
@@ -135,13 +133,17 @@ function editData(id) {
     })
     .then((data) => {
       // Mengisi nilai input pada form edit dengan data hero yang akan diedit
+      const editTitle = document.querySelector('.modal-edit');
+
+      editTitle.textContent = 'Edit Hero ' + data.name;
+
       editName.value = data.name;
       editImg.value = data.img;
       editRole.value = data.role;
       editType.value = data.type;
 
       editForm.setAttribute('data-id', id);
-      // Mengisi opsi pada elemen <select> pada form-edit
+
       roleList.forEach((element) => {
         const newOption = document.createElement('option');
         newOption.textContent = element;
@@ -156,9 +158,9 @@ function editData(id) {
         editType.appendChild(newOption);
       });
 
-      // Menampilkan form edit dan menyembunyikan form tambah data
-      editForm.style.display = 'block';
-      addForm.style.display = 'none';
+      // Menampilkan modal edit
+      const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+      editModal.show();
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -202,15 +204,9 @@ function updateData() {
         console.log(responseData);
         alert('Data Berhasil Diupdate');
 
-        // Menampilkan form tambah data dan menyembunyikan form edit
-        editForm.style.display = 'none';
-        document.querySelector('form').style.display = 'block';
-
-        // Mengosongkan nilai input pada form edit
-        editName.value = '';
-        editImg.value = '';
-        editRole.value = '';
-        editType.value = '';
+        // Menutup modal edit
+        const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+        editModal.hide();
 
         // Memuat ulang data setelah update
         fetchData();
@@ -236,7 +232,7 @@ function showData(id) {
       // Mendapatkan elemen modal dan gambar
       const modal = document.getElementById('imageModal');
       const modalImage = document.getElementById('modalImage');
-      const modalTitle = document.querySelector('.modal-title');
+      const modalTitle = document.querySelector('.title-name');
       const modalRole = document.querySelector('.modal-role');
       const modalType = document.querySelector('.modal-type');
 
