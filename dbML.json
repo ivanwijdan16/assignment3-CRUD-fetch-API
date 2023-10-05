@@ -9,19 +9,19 @@
       "type": "Magic"
     },
     {
-      "id": 2,
-      "num": "002",
       "name": "Lesley",
       "img": "https://cdn.oneesports.id/cdn-data/sites/2/2022/09/MLBB_Lesley-1024x576-1.png",
       "role": "Marksman",
-      "type": "Physical"
+      "type": "Physical",
+      "id": 2
     },
     {
+      "id": 3,
+      "num": "003",
       "name": "Grock",
       "img": "https://blogger.googleusercontent.com/img/a/AVvXsEhvpaPfHetPaSGCzuCb5WIn4H-587LtfXg61bC73yL7ofXv1wceOkeo-VNTDOaNMfdF2b3G9W9aXxNicgmZWEcKgdc-2hwGJBND7CaqwILJ_2ObWDMUbgfQCAUtfcva8_gF1Exdq-e2Ep7u_HBacG29VU7lKfJP9PotIxdL2Bn-n4svsYQ9xZEedbtjbA=w1200-h630-p-k-no-nu",
-      "role": "Fighter",
-      "type": "Physical",
-      "id": 3
+      "role": "Tank",
+      "type": "Physical"
     },
     {
       "id": 4,
@@ -32,11 +32,20 @@
       "type": "Physical"
     },
     {
+      "id": 5,
+      "num": "005",
       "name": "Nana",
-      "img": "https://cdn.oneesports.gg/cdn-data/sites/2/2021/09/MLBB_Clint.jpg",
+      "img": "https://i.pinimg.com/550x/e9/94/69/e994692962972c3c05980aabe8b760ac.jpg",
       "role": "Mage",
-      "type": "Physical",
-      "id": 5
+      "type": "Magic"
+    },
+    {
+      "id": 6,
+      "num": "006",
+      "name": "Alucard",
+      "img": "https://dafunda.com/wp-content/uploads/2022/07/Kisah-Alucard-Mobile-Legends-1.jpg",
+      "role": "Fighter",
+      "type": "Physical"
     }
   ]
 }
