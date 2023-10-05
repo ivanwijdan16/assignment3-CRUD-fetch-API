@@ -38,7 +38,7 @@ function fetchData() {
       data.forEach((item) => {
         const node = document.createElement('div');
         node.innerHTML = `
-          <div class="card my-5 mx-3 text-bg-dark" style="width: 20rem;">
+          <div class="card my-5 mx-3 text-bg-dark " style="width: 20rem;">
               <img src="${item.img}" class="card-img-top" alt="image not responding">
               <div class="card-body">
                   <h5 class="card-text">Name : ${item.name} </h5>
