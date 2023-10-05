@@ -45,8 +45,9 @@ function fetchData() {
                   <h5 class="card-text">Role : ${item.role} </h5>
                   <h5 class="card-text">Type : ${item.type} </h5>
                   <div class="d-flex justify-content-end">
-                  <a href="#" class="btn btn-warning me-3 mt-4" onclick="editData(${item.id})"><span class="fa-solid fa-pen" style="color: #ffffff;"></span></a>
-                      <a href="#" class="btn btn-danger mt-4" onclick="deleteData(${item.id})"><span class="fa-solid fa-trash" style="color: #ffffff;"></span></a>
+                    <a href="#" class="btn btn-info me-3 mt-4" onclick="showData(${item.id})"><span class="fa-solid fa-eye" style="color: #ffffff;"></span></a>
+                    <a href="#" class="btn btn-warning me-3 mt-4" onclick="editData(${item.id})"><span class="fa-solid fa-pen" style="color: #ffffff;"></span></a>
+                    <a href="#" class="btn btn-danger mt-4" onclick="deleteData(${item.id})"><span class="fa-solid fa-trash" style="color: #ffffff;"></span></a>
                   </div>
               </div>
           </div>
@@ -222,9 +223,40 @@ function updateData() {
   }
 }
 
+function showData(id) {
+  // Mengambil data hero berdasarkan ID
+  fetch(url + `/${id}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      // Mendapatkan elemen modal dan gambar
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      const modalTitle = document.querySelector('.modal-title');
+      const modalRole = document.querySelector('.modal-role');
+      const modalType = document.querySelector('.modal-type');
+
+      modalTitle.textContent = data.name;
+      // Mengatur gambar modal sesuai dengan data yang diterima
+      modalImage.src = data.img;
+      modalRole.textContent = 'Role : ' + data.role;
+      modalType.textContent = 'Type : ' + data.type;
+
+      // Menampilkan modal
+      const bootstrapModal = new bootstrap.Modal(modal);
+      bootstrapModal.show();
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+}
+
 // GET all http://localhost:3000/data/
 // GET detail http://localhost:3000/data/:id
 // POST http://localhost:3000/data dan data
 // DELETE http://localhost:3000/data/:id
 // PUT http://localhost:3000/data/:id dan data
-//<a href="#" class="btn btn-info me-3 mt-4" onclick="deleteData(${data[i].id})"><span class="fa-solid fa-eye" style="color: #ffffff;"></span></a>
