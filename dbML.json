@@ -47,6 +47,14 @@
       "img": "https://dafunda.com/wp-content/uploads/2022/07/Kisah-Alucard-Mobile-Legends-1.jpg",
       "role": "Fighter",
       "type": "Physical"
+    },
+    {
+      "num": "007",
+      "name": "Clint",
+      "img": "https://s0.bukalapak.com/bukalapak-kontenz-production/content_attachments/72480/original/Clint_UHDpaper.jpg",
+      "role": "Fighter",
+      "type": "Physical",
+      "id": 7
     }
   ]
 }
