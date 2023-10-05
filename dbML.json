@@ -9,11 +9,12 @@
       "type": "Magic"
     },
     {
+      "id": 2,
+      "num": "002",
       "name": "Lesley",
       "img": "https://cdn.oneesports.id/cdn-data/sites/2/2022/09/MLBB_Lesley-1024x576-1.png",
       "role": "Marksman",
-      "type": "Physical",
-      "id": 2
+      "type": "Physical"
     },
     {
       "id": 3,
