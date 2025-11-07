@@ -7,6 +7,9 @@ const result = document.getElementById("result");
 // Untuk development lokal, ganti dengan: http://localhost:3000/data
 const url = "https://690dcafcbd0fefc30a025b4b.mockapi.io/data";
 
+// Debug: Log URL yang digunakan
+console.log("API URL:", url);
+
 let jsonData;
 
 const roleList = ["Fighter", "Mage", "Support", "Assassin", "Marksman", "Tank"];
@@ -28,24 +31,34 @@ typeList.forEach((element) => {
 });
 
 function fetchData() {
-  result.innerHTML = "Loading";
+  result.innerHTML = "<p>Loading data from MockAPI...</p>";
+  console.log("Fetching data from:", url);
 
   fetch(url)
     .then((response) => {
+      console.log("Response status:", response.status);
       if (!response.ok) {
-        throw new Error("Bad Network response");
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
       return response.json();
     })
     .then((data) => {
+      console.log("Data received:", data);
       jsonData = data;
       result.innerHTML = "";
 
+      if (!data || data.length === 0) {
+        result.innerHTML = "<p>No heroes found. Please add heroes in MockAPI dashboard.</p>";
+        return;
+      }
+
       data.forEach((item) => {
         const node = document.createElement("div");
+        // Support both 'img' and 'image' field names
+        const imageUrl = item.img || item.image || "https://via.placeholder.com/150";
         node.innerHTML = `
           <div class="card my-5 mx-3 text-bg-dark " style="width: 20rem;">
-              <img src="${item.img}" class="card-img-top" alt="image not responding">
+              <img src="${imageUrl}" class="card-img-top" alt="image not responding">
               <div class="card-body">
                   <h5 class="card-text">Name : ${item.name} </h5>
                   <h5 class="card-text">Role : ${item.role} </h5>
@@ -62,8 +75,19 @@ function fetchData() {
       });
     })
     .catch((error) => {
-      console.error("Error:", error);
-      result.innerHTML = "Error Fetching Data";
+      console.error("Fetch Error:", error);
+      result.innerHTML = `
+        <div class="alert alert-danger" role="alert">
+          <h4>Error Fetching Data</h4>
+          <p>Error: ${error.message}</p>
+          <p>Please check:</p>
+          <ul>
+            <li>MockAPI is set up correctly</li>
+            <li>Resource 'data' exists in MockAPI</li>
+            <li>URL is correct: ${url}</li>
+          </ul>
+        </div>
+      `;
     });
 }
 
