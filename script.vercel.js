@@ -3,9 +3,10 @@ const role = document.getElementById("role");
 const type = document.getElementById("type");
 const result = document.getElementById("result");
 
-// API URL - MockAPI untuk Production (Vercel)
-// Untuk development lokal, ganti dengan: http://localhost:3000/data
-const url = "https://690dcafcbd0fefc30a025b4b.mockapi.io/data";
+// 🌐 URL API untuk Production (Vercel)
+// GANTI dengan MockAPI URL Anda!
+// Contoh: https://6543abc123def.mockapi.io/data
+const url = "GANTI_DENGAN_MOCKAPI_URL_ANDA";
 
 let jsonData;
 
@@ -257,3 +258,4 @@ function showData(id) {
 // POST http://localhost:3000/data dan data
 // DELETE http://localhost:3000/data/:id
 // PUT http://localhost:3000/data/:id dan data
+

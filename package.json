@@ -1,0 +1,16 @@
+{
+  "name": "assignment3-crud-fetch-api",
+  "version": "1.0.0",
+  "description": "CRUD Hero Mobile Legends with JSON Server",
+  "scripts": {
+    "start": "json-server --watch dbML.json --port 3000",
+    "dev": "json-server --watch dbML.json --port 3000"
+  },
+  "keywords": ["crud", "json-server", "mobile-legends"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "json-server": "^0.17.4"
+  }
+}
+
